@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Generated model file (large binary — optional to track)
+# ann_procrastination_model.pkl
+
+# Plots (auto-generated on each run)
+plots/
+
+# VS Code
+.vscode/PythonImportHelper-v2-Completion.json
