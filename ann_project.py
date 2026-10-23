@@ -21,6 +21,8 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPRegressor
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # =====================================================================
@@ -43,6 +45,24 @@ print("\n[2] Feature correlation with productivity score:")
 correlations = df.corr(numeric_only=True)["productivity_score"]
 print(correlations.sort_values(ascending=False))
 
+# =====================================================================
+# Correlation Heatmap
+# =====================================================================
+plt.figure(figsize=(10, 7))
+
+correlation_matrix = df.corr(numeric_only=True)
+
+sns.heatmap(
+    correlation_matrix,
+    annot=True,
+    cmap="coolwarm",
+    fmt=".2f",
+    linewidths=0.5
+)
+
+plt.title("Correlation Heatmap - Digital Procrastination Predictor")
+plt.tight_layout()
+plt.show()
 # Selected the 6 features with strong correlation (|r| >= 0.15)
 features = [
     "study_hours_per_day",
